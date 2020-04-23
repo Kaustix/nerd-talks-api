@@ -5,13 +5,13 @@ import * as fs from 'fs';
 const config: any = dotenv.parse(fs.readFileSync('.env'));
 
 const connection: ConnectionOptions = {
-  type: config.DB_TYPE,
-  host: config.DB_HOST,
-  port: parseInt(config.DB_PORT),
-  username: config.DB_USERNAME,
-  password: config.DB_PASSWORD,
-  database: config.DB_DATABASE,
-  synchronize: config.DB_SYNC,
+  type: config.DATABSE_TYPE,
+  host: config.DATABASE_URL,
+  port: parseInt(config.DATABSE_PORT),
+  username: config.DATABSE_USER,
+  password: config.DATABSE_PASSWORD,
+  database: config.DATABSE_NAME,
+  synchronize: config.DATABASE_SYNC,
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
   migrationsRun: true,
   logging: true,
