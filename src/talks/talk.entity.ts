@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Event {
+export class Talk {
   constructor(partial: Partial<any>) {
     Object.assign(this, partial);
   }
@@ -10,8 +10,14 @@ export class Event {
   id: number;
 
   @Column()
-  public presenter?: string;
+  title: string;
 
   @Column()
-  public description: string;
+  presenter: string;
+
+  @Column()
+  description: string;
+
+  @Column({ type: 'timestamp' })
+  date: string
 }
