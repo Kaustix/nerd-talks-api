@@ -1,17 +1,16 @@
 import { ConnectionOptions } from 'typeorm';
-import * as dotenv from 'dotenv';
-import * as fs from 'fs';
+import { ConfigService } from './config.service';
 
-const config: any = dotenv.parse(fs.readFileSync('.env'));
+const configService = new ConfigService();
 
 const connection: ConnectionOptions = {
-  type: config.DATABSE_TYPE,
-  host: config.DATABASE_URL,
-  port: parseInt(config.DATABSE_PORT),
-  username: config.DATABSE_USER,
-  password: config.DATABSE_PASSWORD,
-  database: config.DATABSE_NAME,
-  synchronize: config.DATABASE_SYNC,
+  type: configService.get<any>('DATABASE_TYPE'),
+  host:  configService.get<string>('DATABASE_URL'),
+  port:  configService.get<number>('DATABASE_PORT'),
+  username: configService.get<string>('DATABASE_USER'),
+  password: configService.get<string>('DATABASE_PASSWORD'),
+  database: configService.get<string>('DATABASE_NAME'),
+  synchronize: false,
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
   migrationsRun: true,
   logging: true,
