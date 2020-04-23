@@ -14,8 +14,8 @@ async function bootstrap() {
     }),
   );
   const configService = app.get(ConfigService);
-  const port = configService.get<number>('HOST_PORT', 80);
-  const url = configService.get<string>('HOST_URL', '0.0.0.0');
+  const port = configService.get<number>('PORT', 3000);
+  const url = configService.get<string>('URL', '0.0.0.0');
   await app.listen(port, url);
 }
 
