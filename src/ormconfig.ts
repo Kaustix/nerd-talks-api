@@ -11,7 +11,7 @@ const connection: ConnectionOptions = {
   username: config.DB_USERNAME,
   password: config.DB_PASSWORD,
   database: config.DB_DATABASE,
-  synchronize: false,
+  synchronize: config.DB_SYNC,
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
   migrationsRun: true,
   logging: true,
