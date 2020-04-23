@@ -5,11 +5,7 @@ const configService = new ConfigService();
 
 const connection: ConnectionOptions = {
   type: configService.get<any>('DATABASE_TYPE'),
-  host:  configService.get<string>('DATABASE_HOST'),
-  port:  configService.get<number>('DATABASE_PORT'),
-  username: configService.get<string>('DATABASE_USER'),
-  password: configService.get<string>('DATABASE_PASSWORD'),
-  database: configService.get<string>('DATABASE_NAME'),
+  url: configService.get<string>('DATABASE_URL'),
   synchronize: false,
   entities: [__dirname + '/**/*.entity{.ts,.js}'],
   migrationsRun: true,
